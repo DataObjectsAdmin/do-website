@@ -1,0 +1,15 @@
+# Cloudflare Pages redirects
+# Format: source  destination  status
+
+# Pretty URLs without .html extension
+/features    /#features         301
+/objects     /#objects          301
+/pricing     /#pricing          301
+/roadmap     /#roadmap          301
+/contact     /#notify           301
+/signup      /#notify           301
+/early-access /#notify          301
+
+# Old CF paths (just in case anything was indexed)
+/index.cfm   /                  301
+/ComingSoon.cfm  /              301

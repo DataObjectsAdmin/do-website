@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DataObjects — Modern Web Application Builder</title>
+  <meta name="description" content="Build robust, database-driven web applications without the complexity. Scalable, secure, and deployable in minutes. Built for developers and businesses.">
+  <meta property="og:title" content="DataObjects — Modern Web Application Builder">
+  <meta property="og:description" content="Replace legacy database software with a modern, cloud-native platform. Secure. Scalable. 100% web-based.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/do.css?v=0526-1" type="text/css">
+  <script src="/do.js?v=0526-1" defer></script>
+</head>
+<body>
+
+<!-- NAV (from _partials/nav.html) -->
+<div data-include="/_partials/nav.html"></div>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-texture"></div>
+  <div class="hero-glow hero-glow-1"></div>
+  <div class="hero-glow hero-glow-2"></div>
+  <div class="hero-inner">
+    <div>
+      <div class="hero-label rise d1">Platform · Launching 2026</div>
+      <h1 class="rise d2">Your data.<br>Your rules.<br><span class="accent">Your application.</span></h1>
+      <p class="hero-body rise d3">DataObjects is a cloud-native web application builder for developers and businesses. Design, deploy, and share robust database applications — without servers, software installs, or per-seat license nightmares.</p>
+      <div class="hero-ctas rise d4">
+        <a href="/demo.html" class="cta-primary">Try the Live Demo</a>
+        <a href="#objects" class="cta-secondary">
+          Explore Objects
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="hero-panel rise d5">
+      <div class="hero-panel-title">// platform.status</div>
+      <div class="panel-stat"><span class="panel-stat-label">Architecture</span><span class="panel-stat-val">AWS + CloudFlare</span></div>
+      <div class="panel-stat"><span class="panel-stat-label">Per-App Database</span><span class="panel-stat-val gold">Isolated</span></div>
+      <div class="panel-stat"><span class="panel-stat-label">Global Regions</span><span class="panel-stat-val">6 continents</span></div>
+      <div class="panel-stat"><span class="panel-stat-label">2FA Security</span><span class="panel-stat-val green" style="color:white; padding:0px 5px;"> Built-in </span></div>
+      <div class="panel-stat"><span class="panel-stat-label">Software to Install</span><span class="panel-stat-val green" style="color:white; padding:0px 5px;"> None </span></div>
+      <div class="panel-stat"><span class="panel-stat-label">Starting Price</span><span class="panel-stat-val gold">Free</span></div>
+      <div class="panel-stat"><span class="panel-stat-label">Mobile Ready</span><span class="panel-stat-val green" style="color:white; padding:0px 5px;"> Yes </span></div>
+      <span class="panel-badge">● Platform Active</span>
+    </div>
+  </div>
+</div>
+
+<!-- TRUST BAR — replaced infinity icon with concrete numbers -->
+<div class="trust-bar">
+  <div class="trust-wrap">
+    <div class="trust-item"><div class="trust-num">100<sup>%</sup></div><div class="trust-label">Web Based</div></div>
+    <div class="trust-item"><div class="trust-num">20<sup>+</sup></div><div class="trust-label">Object Types</div></div>
+    <div class="trust-item"><div class="trust-num">6</div><div class="trust-label">Global Regions</div></div>
+    <div class="trust-item"><div class="trust-num">2FA</div><div class="trust-label">Built-in Security</div></div>
+    <div class="trust-item"><div class="trust-num">$0</div><div class="trust-label">To Start</div></div>
+  </div>
+</div>
+
+<!-- FEATURES -->
+<section class="section section-white" id="features">
+  <div class="wrap">
+    <div class="section-eyebrow">Platform Capabilities</div>
+    <h2>Everything your application needs.</h2>
+    <p class="section-sub">A complete platform — from database design to live deployment — built on infrastructure that scales to millions of records and billions of files.</p>
+    <div class="feat-grid">
+      <div class="feat-card"><div class="feat-icon">🗃️</div><div class="feat-title">Visual Database Designer</div><div class="feat-desc">Build tables, fields, and relationships with a point-and-click interface. Text, numbers, dates, selects, checkboxes, files — all field types included.</div></div>
+      <div class="feat-card"><div class="feat-icon">🎨</div><div class="feat-title">Drag-and-Drop Layout Builder</div><div class="feat-desc">Design detail views and list views with rows, columns, and tabbed layouts. No HTML required. What you design is what users see.</div></div>
+      <div class="feat-card"><div class="feat-icon">📁</div><div class="feat-title">Native File & Media Storage</div><div class="feat-desc">Images, galleries, PDFs, videos, and any file type stored as first-class data in CloudFlare R2 or your own S3/Azure bucket. Video thumbnails generated automatically.</div></div>
+      <div class="feat-card"><div class="feat-icon">🌍</div><div class="feat-title">Global Data Architecture</div><div class="feat-desc">Store your data in US East, US West, Europe, UK, Australia, or Asia. CloudFlare CDN accelerates delivery worldwide with no latency compromises.</div></div>
+      <div class="feat-card"><div class="feat-icon">🔐</div><div class="feat-title">Enterprise-Grade Security</div><div class="feat-desc">2FA via email and SMS. IP and country-based access control. Per-table user roles and granular permission groups. Built in from day one.</div></div>
+      <div class="feat-card"><div class="feat-icon">📱</div><div class="feat-title">Mobile & Browser Ready</div><div class="feat-desc">Every application adapts automatically to phones, tablets, and desktops. Any modern browser. No app to install. No plugin. No compatibility matrix.</div></div>
+      <div class="feat-card"><div class="feat-icon">🗄️</div><div class="feat-title">Isolated Per-App Databases</div><div class="feat-desc">Every app runs in its own dedicated SQL database — never sharing tables with other customers. Faster queries, cleaner exports, real data isolation.</div></div>
+      <div class="feat-card"><div class="feat-icon">🔌</div><div class="feat-title">Bring Your Own Storage</div><div class="feat-desc">Connect your own AWS S3, Azure Blob, or CloudFlare R2 bucket. Your files stay in your infrastructure. No vendor lock-in, ever.</div></div>
+      <div class="feat-card"><div class="feat-icon">🤖</div><div class="feat-title">AI Search — Coming Soon</div><div class="feat-desc">Upload thousands of PDFs, spreadsheets, and photos. Search file content and images with natural language. Ask your data and get real answers.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- OBJECTS — the differentiator -->
+<section class="section section-steel" id="objects">
+  <div class="wrap">
+    <div class="section-eyebrow">The Object Model</div>
+    <h2>Everything is an Object.</h2>
+    <p class="section-sub">A DataObjects app is just a collection of Objects — tables, fields, layouts, users, and rich content blocks. Drop a Map Object onto a layout. Add a Gallery Object to a record. Wire a QR Object to your inventory. The same building blocks compose into anything.</p>
+
+    <div class="obj-grid">
+      <div class="obj-card"><div class="obj-icon">📝</div><div class="obj-title">Text</div><div class="obj-desc">Short text, long text, rich text. Any length, any field.</div></div>
+      <div class="obj-card"><div class="obj-icon">🖼️</div><div class="obj-title">Gallery</div><div class="obj-desc">Photo galleries with thumbnails, full-screen viewer, drag-and-drop upload.</div></div>
+      <div class="obj-card"><div class="obj-icon">📎</div><div class="obj-title">File</div><div class="obj-desc">PDFs, spreadsheets, documents — viewable inline, downloadable, searchable.</div></div>
+      <div class="obj-card"><div class="obj-icon">🗺️</div><div class="obj-title">Map</div><div class="obj-desc">Google Maps embedded directly in records. Auto-geocodes from address fields.</div></div>
+      <div class="obj-card"><div class="obj-icon">📅</div><div class="obj-title">Date &amp; Time</div><div class="obj-desc">Date pickers, time pickers, datetime combos with timezone support.</div></div>
+      <div class="obj-card"><div class="obj-icon">☑️</div><div class="obj-title">Choice</div><div class="obj-desc">Dropdowns, radio buttons, checkboxes powered by value lists.</div></div>
+      <div class="obj-card"><div class="obj-icon">📱</div><div class="obj-title">QR Code <span class="obj-badge">Soon</span></div><div class="obj-desc">Generate and scan QR codes natively inside any layout.</div></div>
+      <div class="obj-card"><div class="obj-icon">⛅</div><div class="obj-title">Weather <span class="obj-badge">Soon</span></div><div class="obj-desc">Live weather data tied to any location field.</div></div>
+      <div class="obj-card"><div class="obj-icon">📊</div><div class="obj-title">Chart <span class="obj-badge">Soon</span></div><div class="obj-desc">Bar, line, and pie charts that visualize your database records.</div></div>
+      <div class="obj-card"><div class="obj-icon">📆</div><div class="obj-title">Calendar <span class="obj-badge">Soon</span></div><div class="obj-desc">Date-based record views built directly into your layouts.</div></div>
+      <div class="obj-card"><div class="obj-icon">⭐</div><div class="obj-title">Rating</div><div class="obj-desc">Star ratings, score sliders, thumbs up/down for any record.</div></div>
+      <div class="obj-card"><div class="obj-icon">🔗</div><div class="obj-title">Portal</div><div class="obj-desc">Show related records from another table inline — like a list inside a record.</div></div>
+    </div>
+
+    <p class="obj-footer">And many more on the roadmap — Signature, Barcode, Audio, Video, SMS, Webhook, Custom API.</p>
+  </div>
+</section>
+
+<!-- VIDEOS -->
+<section class="section section-white" id="videos">
+  <div class="wrap">
+    <div class="section-eyebrow">Watch &amp; Learn</div>
+    <h2>See it in motion.</h2>
+    <p class="section-sub">Short videos covering the platform — what you can build, how it works, and how to get started.</p>
+
+    <div class="vid-grid">
+      <div class="vid-card">
+        <div class="vid-thumb"><div class="vid-play">▶</div><div class="vid-duration">2 min</div></div>
+        <div class="vid-title">Overview</div>
+        <div class="vid-desc">What is DataObjects and who is it for?</div>
+      </div>
+      <div class="vid-card">
+        <div class="vid-thumb"><div class="vid-play">▶</div><div class="vid-duration">5 min</div></div>
+        <div class="vid-title">Build Your First App</div>
+        <div class="vid-desc">From empty database to working app in five minutes.</div>
+      </div>
+      <div class="vid-card">
+        <div class="vid-thumb"><div class="vid-play">▶</div><div class="vid-duration">4 min</div></div>
+        <div class="vid-title">Working with Objects</div>
+        <div class="vid-desc">Adding text, files, galleries, maps, and more to your layout.</div>
+      </div>
+      <div class="vid-card">
+        <div class="vid-thumb"><div class="vid-play">▶</div><div class="vid-duration">3 min</div></div>
+        <div class="vid-title">Users &amp; Security</div>
+        <div class="vid-desc">Invite users, set roles, configure 2FA and access controls.</div>
+      </div>
+    </div>
+
+    <p class="vid-footer">Subscribe on <a href="https://youtube.com/@DataObjects" target="_blank" rel="noopener">YouTube</a> for new videos as we release them.</p>
+  </div>
+</section>
+
+<!-- SAMPLE APPS -->
+<section class="section section-steel" id="apps">
+  <div class="wrap">
+    <div class="section-eyebrow">What People Build</div>
+    <h2>From contact lists to entire businesses.</h2>
+    <p class="section-sub">A few of the kinds of apps DataObjects is built for. Many of these will ship as ready-made templates at launch.</p>
+
+    <div class="app-grid">
+      <div class="app-card">
+        <div class="app-thumb">CRM</div>
+        <div class="app-title">Customer Relationship Manager</div>
+        <div class="app-desc">Contacts, deals, notes, follow-ups, and email history in one place.</div>
+      </div>
+      <div class="app-card">
+        <div class="app-thumb">INV</div>
+        <div class="app-title">Inventory Tracker</div>
+        <div class="app-desc">Items, quantities, locations, photos, and reorder thresholds — with QR-code lookup.</div>
+      </div>
+      <div class="app-card">
+        <div class="app-thumb">INSP</div>
+        <div class="app-title">Field Inspection</div>
+        <div class="app-desc">Mobile-first inspection forms, photo uploads, signatures, GPS tagging.</div>
+      </div>
+      <div class="app-card">
+        <div class="app-thumb">RE</div>
+        <div class="app-title">Real Estate Listings</div>
+        <div class="app-desc">Properties, agents, showings, photo galleries, map views of every listing.</div>
+      </div>
+      <div class="app-card">
+        <div class="app-thumb">MED</div>
+        <div class="app-title">Patient Records</div>
+        <div class="app-desc">Medical history, visit notes, attached scans, secure per-user access.</div>
+      </div>
+      <div class="app-card">
+        <div class="app-thumb">EVT</div>
+        <div class="app-title">Event Management</div>
+        <div class="app-desc">Attendees, sessions, check-in QR codes, photo galleries, post-event surveys.</div>
+      </div>
+      <div class="app-card">
+        <div class="app-thumb">MEM</div>
+        <div class="app-title">Membership Directory</div>
+        <div class="app-desc">Members, dues, photos, contact info — for churches, clubs, and associations.</div>
+      </div>
+      <div class="app-card">
+        <div class="app-thumb">ROOF</div>
+        <div class="app-title">Trades &amp; Contracting</div>
+        <div class="app-desc">Jobs, clients, contracts, before/after photos, file storage at scale.</div>
+      </div>
+      <div class="app-card">
+        <div class="app-thumb">ASSET</div>
+        <div class="app-title">Asset Management</div>
+        <div class="app-desc">Equipment, serial numbers, maintenance logs, warranty tracking.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AUDIENCE / WHO IT'S FOR -->
+<section class="section section-white">
+  <div class="wrap">
+    <div class="section-eyebrow">Who It's For</div>
+    <h2>Built for the builder.<br>Priced for the business.</h2>
+    <p class="section-sub">Whether you're a developer shipping client work, a business migrating off legacy software, or an individual organizing your world — DataObjects scales to fit.</p>
+    <div class="audience-grid">
+
+      <div class="aud-card">
+        <div class="aud-title">Personal Use</div>
+        <div class="aud-desc">Ready-to-use application templates for everyday life — from family contacts and home inventory to community groups and collections.</div>
+        <ul class="aud-list">
+          <li>Pre-built app templates at launch</li>
+          <li>Photo and media library management</li>
+          <li>Share databases with family or groups</li>
+          <li>Free tier — no credit card to get started</li>
+        </ul>
+      </div>
+
+      <div class="aud-card">
+        <div class="aud-title">Small Business</div>
+        <div class="aud-desc">Replace expensive legacy desktop database software with a modern system your whole team accesses instantly — from anywhere on any device.</div>
+        <ul class="aud-list">
+          <li>From 5 to 500 users, simple monthly pricing</li>
+          <li>No servers or IT infrastructure required</li>
+          <li>Built-in file storage — images, docs, video</li>
+          <li>Role-based access control and 2FA</li>
+        </ul>
+      </div>
+
+      <div class="aud-card">
+        <div class="aud-title">Developers</div>
+        <div class="aud-desc">Build custom database applications for clients. Resell under your own brand. Replicate apps across organizations instantly.</div>
+        <ul class="aud-list">
+          <li>Full developer portal at dev.dataobjects.com</li>
+          <li>White-label apps with custom client domains</li>
+          <li>App library — build once, deploy to many</li>
+          <li>API access for external integrations</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- COMPARISON: Legacy vs Modern -->
+<section class="section section-navy">
+  <div class="wrap">
+    <div class="section-eyebrow light">Why DataObjects</div>
+    <h2 class="light">Legacy software was built<br>for a different era.</h2>
+    <p class="section-sub light">Desktop database software made sense in 2005. In 2026, you deserve infrastructure that matches how the world actually works.</p>
+    <div class="compare-grid">
+      <div class="compare-card legacy">
+        <div class="compare-head">
+          <span class="compare-head-title">Legacy Desktop Database Software</span>
+          <span class="compare-pill">Old Way</span>
+        </div>
+        <div class="compare-rows">
+          <div class="compare-row"><span class="cr-icon">✗</span> $500+ per seat plus mandatory annual upgrades</div>
+          <div class="compare-row"><span class="cr-icon">✗</span> Dedicated server software adds $1,000+/year</div>
+          <div class="compare-row"><span class="cr-icon">✗</span> Minimum user license even if you have 2 users</div>
+          <div class="compare-row"><span class="cr-icon">✗</span> Annual per-seat commitment, no monthly option</div>
+          <div class="compare-row"><span class="cr-icon">✗</span> Files stored inside the database — bloating it</div>
+          <div class="compare-row"><span class="cr-icon">✗</span> No 2FA, no IP-based access control</div>
+          <div class="compare-row"><span class="cr-icon">✗</span> Single point of failure, cannot be clustered</div>
+          <div class="compare-row"><span class="cr-icon">✗</span> Severe latency for remote or international users</div>
+          <div class="compare-row"><span class="cr-icon">✗</span> OS or hardware upgrades can break everything</div>
+        </div>
+      </div>
+      <div class="compare-card modern">
+        <div class="compare-head">
+          <span class="compare-head-title">DataObjects</span>
+          <span class="compare-pill">Modern Way</span>
+        </div>
+        <div class="compare-rows">
+          <div class="compare-row"><span class="cr-icon">✓</span> Free to start, transparent monthly pricing</div>
+          <div class="compare-row"><span class="cr-icon">✓</span> Fully managed cloud — no server software ever</div>
+          <div class="compare-row"><span class="cr-icon">✓</span> Add hundreds of users, pay for active usage only</div>
+          <div class="compare-row"><span class="cr-icon">✓</span> Monthly billing, no long-term commitment</div>
+          <div class="compare-row"><span class="cr-icon">✓</span> Files in R2/S3 — fast, cheap, separate from data</div>
+          <div class="compare-row"><span class="cr-icon">✓</span> 2FA via email &amp; SMS, IP/country blocking</div>
+          <div class="compare-row"><span class="cr-icon">✓</span> Clustered, global, zero single point of failure</div>
+          <div class="compare-row"><span class="cr-icon">✓</span> CloudFlare CDN — fast delivery from every continent</div>
+          <div class="compare-row"><span class="cr-icon">✓</span> No software to install, patch, or migrate — ever</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMING SOON (from _partials/coming-soon.html) -->
+<div data-include="/_partials/coming-soon.html"></div>
+
+<!-- PRICING — new structure with concurrent users -->
+<section class="section section-white" id="pricing">
+  <div class="wrap">
+    <div class="section-eyebrow">Pricing</div>
+    <h2>Simple, honest pricing.</h2>
+    <p class="section-sub">Add hundreds of users to your app — pay only for the seats actually in use at the same time. Pricing announced at launch.</p>
+    <div class="pricing-grid">
+
+      <div class="price-card">
+        <div class="price-name">Free</div>
+        <div class="price-amount"><sup>$</sup>0</div>
+        <div class="price-period">forever</div>
+        <div class="price-divider"></div>
+        <div class="price-desc">Try the full platform. Build your first app with no credit card.</div>
+        <ul class="price-features">
+          <li>1 user</li>
+          <li>1 app</li>
+          <li>1 GB file storage</li>
+          <li>Email support</li>
+        </ul>
+      </div>
+
+      <div class="price-card">
+        <div class="price-name">Personal</div>
+        <div class="price-amount"><sup>$</sup>—</div>
+        <div class="price-period">per month</div>
+        <div class="price-divider"></div>
+        <div class="price-desc">For families, clubs, churches, and small organizations.</div>
+        <ul class="price-features">
+          <li>50 named users</li>
+          <li><strong>5 working at the same time</strong></li>
+          <li>3 apps</li>
+          <li>10 GB file storage</li>
+        </ul>
+      </div>
+
+      <div class="price-card featured">
+        <div class="price-badge">Most Popular</div>
+        <div class="price-name">Business</div>
+        <div class="price-amount"><sup>$</sup>—</div>
+        <div class="price-period">per month</div>
+        <div class="price-divider"></div>
+        <div class="price-desc">For growing businesses with active daily users.</div>
+        <ul class="price-features">
+          <li>200 named users</li>
+          <li><strong>20 working at the same time</strong></li>
+          <li>10 apps</li>
+          <li>50 GB file storage</li>
+          <li>Priority support</li>
+        </ul>
+      </div>
+
+      <div class="price-card">
+        <div class="price-name">Enterprise</div>
+        <div class="price-amount"><sup>$</sup>—</div>
+        <div class="price-period">per month</div>
+        <div class="price-divider"></div>
+        <div class="price-desc">For larger organizations with significant concurrent activity.</div>
+        <ul class="price-features">
+          <li>500 named users</li>
+          <li><strong>50 working at the same time</strong></li>
+          <li>25 apps</li>
+          <li>250 GB file storage</li>
+          <li>Phone &amp; email support</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <p class="price-explain">"Working at the same time" is like a parking lot — you can have many users registered, but only the listed number can be logged in simultaneously. Need more? Upgrade in one click, anytime.</p>
+
+    <p class="price-note">Pricing announced at launch. <a href="#notify">Join the list</a> to be notified and lock in early-access rates. Custom plans available for larger deployments — <a href="mailto:info@dataobjects.com">contact us</a>.</p>
+  </div>
+</section>
+
+<!-- ROADMAP -->
+<section class="section section-navy">
+  <div class="wrap">
+    <div class="section-eyebrow light">Roadmap</div>
+    <h2 class="light">This is just the beginning.</h2>
+    <p class="section-sub light">The platform is actively in development. Here's what's on the horizon.</p>
+
+    <div class="roadmap-grid">
+      <div class="rm-item"><div class="rm-dot soon"></div><div><div class="rm-title">AI File Scanning</div><div class="rm-sub">Natural language search across PDFs, documents, spreadsheets, and images</div></div></div>
+      <div class="rm-item"><div class="rm-dot soon"></div><div><div class="rm-title">Public REST API</div><div class="rm-sub">Query your DataObjects data from any external application or service</div></div></div>
+      <div class="rm-item"><div class="rm-dot soon"></div><div><div class="rm-title">Script Engine</div><div class="rm-sub">Buttons, triggers, automations, and email/SMS actions built into your app</div></div></div>
+      <div class="rm-item"><div class="rm-dot soon"></div><div><div class="rm-title">Calendar Object</div><div class="rm-sub">Date-based record views built directly into your layouts</div></div></div>
+      <div class="rm-item"><div class="rm-dot soon"></div><div><div class="rm-title">Chart &amp; Graph Objects</div><div class="rm-sub">Visualize your database records inline with bar, line, and pie charts</div></div></div>
+      <div class="rm-item"><div class="rm-dot soon"></div><div><div class="rm-title">QR &amp; Barcode Objects</div><div class="rm-sub">Scan and generate codes natively inside any database layout</div></div></div>
+      <div class="rm-item"><div class="rm-dot soon"></div><div><div class="rm-title">CSV, JSON, Excel Import / Export</div><div class="rm-sub">Migrate your existing data into DataObjects in minutes</div></div></div>
+      <div class="rm-item"><div class="rm-dot soon"></div><div><div class="rm-title">Transaction Logging</div><div class="rm-sub">Full per-record audit trail and complete database rollback</div></div></div>
+      <div class="rm-item"><div class="rm-dot soon"></div><div><div class="rm-title">HIPAA &amp; SOC 2</div><div class="rm-sub">Compliance certifications for healthcare and regulated industries</div></div></div>
+      <div class="rm-item"><div class="rm-dot soon"></div><div><div class="rm-title">External API Objects</div><div class="rm-sub">Connect Maps, Weather, Currency, Market Data, News, Social Media…</div></div></div>
+      <div class="rm-item"><div class="rm-dot soon"></div><div><div class="rm-title">AI Assist</div><div class="rm-sub">Connect your favorite AI LLM directly into your app for quick data answers</div></div></div>
+      <div class="rm-item"><div class="rm-dot soon"></div><div><div class="rm-title">Developer Marketplace</div><div class="rm-sub">Buy, sell, and clone industry-specific apps from other developers</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- EARLY ACCESS (from _partials/notify.html) -->
+<div data-include="/_partials/notify.html"></div>
+
+<!-- FOOTER (from _partials/footer.html) -->
+<div data-include="/_partials/footer.html"></div>
+
+</body>
+</html>

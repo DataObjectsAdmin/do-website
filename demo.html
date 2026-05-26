@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Try the DataObjects Demo</title>
+  <meta name="description" content="See a working DataObjects application in your browser. Read-only demo, no signup required.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/do.css?v=0526-1" type="text/css">
+  <script src="/do.js?v=0526-1" defer></script>
+</head>
+<body>
+
+<div data-include="/_partials/nav.html"></div>
+
+<section class="section section-white" style="min-height: 70vh; display: flex; align-items: center;">
+  <div class="wrap" style="text-align: center; max-width: 720px;">
+    <div class="section-eyebrow" style="justify-content: center;">Live Demo</div>
+    <h2>See it in action.</h2>
+    <p class="section-sub">The demo app is a read-only sample database — explore tables, records, galleries, and layouts. Enter your email to start.</p>
+
+    <form class="notify-form" id="demo-form" style="margin: 30px auto;">
+      <input type="email" name="DOemail" placeholder="your@email.com" required>
+      <button type="submit">Launch Demo →</button>
+    </form>
+
+    <p class="notify-sub" style="color: #5a6678;">Read-only access · No password required · Demo data refreshes nightly</p>
+    <p id="DOnotify" style="display:none; color:#E8A020; padding-top: 10px; font-size:1.2rem;">
+      <span style="color:green;">✓</span> Launching demo… you'll be redirected in a moment.
+    </p>
+  </div>
+</section>
+
+<div data-include="/_partials/footer.html"></div>
+
+<!--
+  TODO: this is currently a stub. Final demo flow needs:
+   1. Cloudflare Turnstile widget on the form (bot check)
+   2. POST to /v6/demo/request on do-server
+        — records lead in DO.leads
+        — creates/finds a guest user record
+        — issues a magic link token
+   3. On success, redirect to:
+        https://app.dataobjects.com/?app=MAKAI_GUID&token=XYZ
+   4. Server enforces read-only on guest role for all data routes.
+-->
+
+</body>
+</html>
