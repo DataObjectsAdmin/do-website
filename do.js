@@ -9,7 +9,7 @@
 // ─────────────────────────────────────────────
 
 // Where the lead-capture API lives. Update if your do-server URL changes.
-const API_BASE = 'https://do.dataobjects.com';
+const API_BASE = 'https://data.dataobjects.com';
 
 // ─── HTML INCLUDE LOADER ─────────────────────
 // Usage in HTML: <div data-include="_partials/nav.html"></div>
