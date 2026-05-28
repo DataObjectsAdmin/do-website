@@ -181,7 +181,8 @@
 
       if (data.status === 'ok' && data.loginUrl) {
         // Redirect to the demo app — token in URL gets auto-validated by DO_Login.jsx
-        window.location.href = data.loginUrl;
+        //window.location.href = data.loginUrl;
+        window.open(data.loginUrl, '_blank', 'noopener,noreferrer');
       } else {
         showError(data.message || 'Could not launch demo. Please try again.');
         btn.disabled    = false;
