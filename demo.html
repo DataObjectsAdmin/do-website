@@ -7,44 +7,198 @@
   <meta name="description" content="See a working DataObjects application in your browser. Read-only demo, no signup required.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/do.css?v=0526-1" type="text/css">
-  <script src="/do.js?v=0526-1" defer></script>
+  <link rel="stylesheet" href="/do.css?v=0526-2" type="text/css">
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+  <script src="/do.js?v=0526-2" defer></script>
+
+  <style>
+    .demo-card {
+      max-width: 520px;
+      margin: 0 auto;
+      background: #fff;
+      border: 1px solid #e3e8ef;
+      border-radius: 14px;
+      padding: 40px 36px;
+      box-shadow: 0 4px 20px rgba(32, 75, 140, 0.06);
+    }
+    .demo-form input[type=email] {
+      width: 100%;
+      padding: 14px 16px;
+      border: 1px solid #d4dbe5;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-family: inherit;
+      margin-top: 24px;
+      transition: border-color .15s ease;
+    }
+    .demo-form input[type=email]:focus {
+      outline: none;
+      border-color: #204B8C;
+    }
+    .demo-optin-label {
+      display: block;
+      font-size: 0.85rem;
+      color: #5a6678;
+      margin-top: 6px;
+      text-align: left;
+      padding-left: 4px;
+    }
+    .demo-launch-btn {
+      width: 100%;
+      margin-top: 24px;
+      padding: 14px 24px;
+      background: #E8A020;
+      color: #1c2c44;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 700;
+      font-family: inherit;
+      cursor: pointer;
+      transition: background .15s ease, transform .1s ease;
+    }
+    .demo-launch-btn:hover:not(:disabled) {
+      background: #f0b03a;
+    }
+    .demo-launch-btn:active:not(:disabled) {
+      transform: translateY(1px);
+    }
+    .demo-launch-btn:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+    .demo-turnstile {
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+    }
+    .demo-error {
+      margin-top: 16px;
+      color: #c0392b;
+      font-size: 0.9rem;
+      display: none;
+    }
+    .demo-error.show { display: block; }
+    .demo-fineprint {
+      margin-top: 18px;
+      font-size: 0.8rem;
+      color: #8a95a7;
+    }
+  </style>
 </head>
 <body>
 
 <div data-include="/_partials/nav.html"></div>
 
 <section class="section section-white" style="min-height: 70vh; display: flex; align-items: center;">
-  <div class="wrap" style="text-align: center; max-width: 720px;">
+  <div class="wrap" style="text-align: center;">
     <div class="section-eyebrow" style="justify-content: center;">Live Demo</div>
-    <h2>See it in action.</h2>
-    <p class="section-sub">The demo app is a read-only sample database — explore tables, records, galleries, and layouts. Enter your email to start.</p>
+    <h2 style="margin-bottom: 12px;">See it in action.</h2>
+    <p class="section-sub" style="margin-bottom: 40px;">Launch a working sample database — explore tables, records, galleries, and layouts. No signup required.</p>
 
-    <form class="notify-form" id="demo-form" style="margin: 30px auto;">
-      <input type="email" name="DOemail" placeholder="your@email.com" required>
-      <button type="submit">Launch Demo →</button>
-    </form>
+    <div class="demo-card">
+      <form class="demo-form" id="demo-form">
+        <input
+          type="email"
+          name="email"
+          id="demo-email"
+          placeholder="your@email.com (optional)"
+          autocomplete="email">
+        <label class="demo-optin-label">
+          Optional — leave your email to hear when we launch publicly.
+        </label>
 
-    <p class="notify-sub" style="color: #5a6678;">Read-only access · No password required · Demo data refreshes nightly</p>
-    <p id="DOnotify" style="display:none; color:#E8A020; padding-top: 10px; font-size:1.2rem;">
-      <span style="color:green;">✓</span> Launching demo… you'll be redirected in a moment.
-    </p>
+        <!-- Cloudflare Turnstile — invisible bot check -->
+        <div class="demo-turnstile">
+          <div
+            class="cf-turnstile"
+            data-sitekey="YOUR_TURNSTILE_SITE_KEY_HERE"
+            data-theme="light"
+            data-size="flexible">
+          </div>
+        </div>
+
+        <button type="submit" class="demo-launch-btn" id="demo-launch-btn">
+          Launch Demo →
+        </button>
+
+        <p class="demo-error" id="demo-error"></p>
+      </form>
+
+      <p class="demo-fineprint">Read-only access · Demo data refreshes nightly · No password required</p>
+    </div>
+
   </div>
 </section>
 
 <div data-include="/_partials/footer.html"></div>
 
-<!--
-  TODO: this is currently a stub. Final demo flow needs:
-   1. Cloudflare Turnstile widget on the form (bot check)
-   2. POST to /v6/demo/request on do-server
-        — records lead in DO.leads
-        — creates/finds a guest user record
-        — issues a magic link token
-   3. On success, redirect to:
-        https://app.dataobjects.com/?app=MAKAI_GUID&token=XYZ
-   4. Server enforces read-only on guest role for all data routes.
--->
+<script>
+(function() {
+  const API_BASE = 'https://do.dataobjects.com'; // adjust if your API host differs
+
+  const form    = document.getElementById('demo-form');
+  const btn     = document.getElementById('demo-launch-btn');
+  const errEl   = document.getElementById('demo-error');
+  const emailEl = document.getElementById('demo-email');
+
+  function showError(msg) {
+    errEl.textContent = msg;
+    errEl.classList.add('show');
+  }
+  function clearError() {
+    errEl.classList.remove('show');
+    errEl.textContent = '';
+  }
+
+  form.addEventListener('submit', async function(e) {
+    e.preventDefault();
+    clearError();
+
+    // Pull Turnstile token (added by the widget script automatically as
+    // a hidden input named cf-turnstile-response)
+    const tokenInput = form.querySelector('input[name=cf-turnstile-response]');
+    const turnstileToken = tokenInput ? tokenInput.value : '';
+
+    if (!turnstileToken) {
+      showError('Please wait a moment for the security check to complete.');
+      return;
+    }
+
+    btn.disabled    = true;
+    btn.textContent = 'Launching…';
+
+    try {
+      const resp = await fetch(`${API_BASE}/v6/demo/launch`, {
+        method:  'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body:    JSON.stringify({
+          turnstileToken,
+          email: (emailEl.value || '').trim() || undefined,
+        }),
+      });
+      const data = await resp.json();
+
+      if (data.status === 'ok' && data.loginUrl) {
+        // Redirect to the demo app — token in URL gets auto-validated by DO_Login.jsx
+        window.location.href = data.loginUrl;
+      } else {
+        showError(data.message || 'Could not launch demo. Please try again.');
+        btn.disabled    = false;
+        btn.textContent = 'Launch Demo →';
+        // Reset Turnstile so user can retry
+        if (window.turnstile) window.turnstile.reset();
+      }
+    } catch (err) {
+      console.error('[demo]', err);
+      showError('Network error. Please check your connection and try again.');
+      btn.disabled    = false;
+      btn.textContent = 'Launch Demo →';
+      if (window.turnstile) window.turnstile.reset();
+    }
+  });
+})();
+</script>
 
 </body>
 </html>
