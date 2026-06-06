@@ -537,6 +537,20 @@ body.partials-loaded { opacity: 1; }
 .vid-footer a { color: #204B8C; font-weight: 600; text-decoration: none; }
 .vid-footer a:hover { text-decoration: underline; }
 
+.video-modal {
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.85);
+    z-index:9999;
+    justify-content:center;
+    align-items:center;
+}
+
+
+
+
+
 /* ─── SAMPLE APPS GRID ─── */
 .app-grid {
   display: grid;
