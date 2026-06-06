@@ -538,13 +538,40 @@ body.partials-loaded { opacity: 1; }
 .vid-footer a:hover { text-decoration: underline; }
 
 .video-modal {
-    display:none;
-    position:fixed;
-    inset:0;
-    background:rgba(0,0,0,.85);
-    z-index:9999;
-    justify-content:center;
-    align-items:center;
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.85);
+    z-index: 9999;
+
+    justify-content: center;
+    align-items: center;
+}
+
+.video-modal-content {
+    position: relative;
+
+    width: 90vw;
+    max-width: 1200px;
+
+    aspect-ratio: 16 / 9;
+
+    background: #000;
+}
+
+.video-modal-content iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+.video-close {
+    position: absolute;
+    right: -10px;
+    top: -40px;
+    font-size: 36px;
+    color: white;
+    cursor: pointer;
 }
 
 
