@@ -469,7 +469,9 @@ body.partials-loaded { opacity: 1; }
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
 }
+
 
 .vid-thumb img {
     width: 100%;
