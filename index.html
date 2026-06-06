@@ -181,8 +181,47 @@
     </div>
 
 </div>
+<!-- VIDEO JS -->
+<script>
+document.addEventListener('DOMContentLoaded', () => {
 
+    const modal = document.getElementById('videoModal');
+    const frame = document.getElementById('videoFrame');
+    const closeBtn = document.getElementById('videoClose');
 
+    document.querySelectorAll('.vid-card').forEach(card => {
+
+        card.addEventListener('click', () => {
+
+            const videoId = card.dataset.video;
+
+            frame.src =
+                `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+
+            modal.style.display = 'block';
+        });
+
+    });
+
+    closeBtn.addEventListener('click', closeVideo);
+
+    modal.addEventListener('click', (e) => {
+
+        if (e.target === modal) {
+            closeVideo();
+        }
+
+    });
+
+    function closeVideo() {
+
+        frame.src = '';
+        modal.style.display = 'none';
+
+    }
+
+});
+</script>
 
 
 <!-- SAMPLE APPS -->
