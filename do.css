@@ -477,7 +477,7 @@ body.partials-loaded { opacity: 1; }
     width: 100%;
     display: block;
 }
-.vid-play {
+/* .vid-play {
   width: 56px;
   height: 56px;
   border-radius: 50%;
@@ -489,7 +489,24 @@ body.partials-loaded { opacity: 1; }
   font-size: 22px;
   padding-left: 4px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+} */
+
+.vid-play {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+    font-size: 28px;
+    background: rgba(0,0,0,.65);
+    color: white;
+    border-radius: 50%;
 }
+
+
 .vid-duration {
   position: absolute;
   bottom: 10px;
