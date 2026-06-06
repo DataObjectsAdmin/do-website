@@ -470,6 +470,11 @@ body.partials-loaded { opacity: 1; }
   align-items: center;
   justify-content: center;
 }
+
+.vid-thumb img {
+    width: 100%;
+    display: block;
+}
 .vid-play {
   width: 56px;
   height: 56px;
