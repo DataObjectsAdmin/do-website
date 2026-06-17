@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create Your Developer Account — DataObjects</title>
+  <meta name="description" content="Sign up for a free DataObjects developer account. Build and deploy database-driven web applications in minutes.">
+  <meta name="robots" content="noindex">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/do.css?v=0526-2" type="text/css">
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+  <script src="/do.js?v=0526-2" defer></script>
+
+  <style>
+    .signup-card {
+      max-width: 520px;
+      margin: 0 auto;
+      background: #fff;
+      border: 1px solid #e3e8ef;
+      border-radius: 14px;
+      padding: 40px 36px;
+      box-shadow: 0 4px 20px rgba(32, 75, 140, 0.06);
+    }
+    .signup-row {
+      display: flex;
+      gap: 12px;
+    }
+    .signup-row .signup-field {
+      flex: 1;
+    }
+    .signup-field {
+      margin-bottom: 16px;
+    }
+    .signup-field label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #374151;
+      margin-bottom: 6px;
+    }
+    .signup-field input {
+      width: 100%;
+      padding: 12px 14px;
+      border: 1px solid #d4dbe5;
+      border-radius: 8px;
+      font-size: 0.95rem;
+      font-family: inherit;
+      transition: border-color .15s ease;
+      color: #0f1923;
+    }
+    .signup-field input:focus {
+      outline: none;
+      border-color: #204B8C;
+    }
+    .signup-turnstile {
+      margin-top: 8px;
+      margin-bottom: 8px;
+      display: flex;
+      justify-content: center;
+    }
+    .signup-btn {
+      width: 100%;
+      margin-top: 8px;
+      padding: 14px 24px;
+      background: #204B8C;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 700;
+      font-family: inherit;
+      cursor: pointer;
+      transition: background .15s ease, transform .1s ease;
+    }
+    .signup-btn:hover:not(:disabled) {
+      background: #1a3d73;
+    }
+    .signup-btn:active:not(:disabled) {
+      transform: translateY(1px);
+    }
+    .signup-btn:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+    .signup-error {
+      margin-top: 12px;
+      padding: 10px 14px;
+      background: #fef2f2;
+      border: 1px solid #fecaca;
+      border-radius: 8px;
+      color: #c0392b;
+      font-size: 0.875rem;
+      display: none;
+    }
+    .signup-error.show { display: block; }
+    .signup-fineprint {
+      margin-top: 16px;
+      font-size: 0.8rem;
+      color: #8a95a7;
+      text-align: center;
+    }
+    .signup-fineprint a {
+      color: #204B8C;
+    }
+    /* Success state */
+    .signup-success {
+      display: none;
+      text-align: center;
+      padding: 12px 0;
+    }
+    .signup-success.show { display: block; }
+    .signup-success-icon {
+      font-size: 48px;
+      margin-bottom: 16px;
+    }
+    .signup-success h3 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #0f1923;
+      margin-bottom: 10px;
+    }
+    .signup-success p {
+      font-size: 0.95rem;
+      color: #5a6678;
+      line-height: 1.6;
+      margin-bottom: 24px;
+    }
+    .signup-success-btn {
+      display: inline-block;
+      padding: 12px 28px;
+      background: #204B8C;
+      color: #fff;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      text-decoration: none;
+      transition: background .15s ease;
+    }
+    .signup-success-btn:hover {
+      background: #1a3d73;
+    }
+    .signup-perks {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin: 28px 0 0;
+      text-align: left;
+    }
+    .signup-perk {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 0.9rem;
+      color: #374151;
+    }
+    .signup-perk-icon {
+      font-size: 1rem;
+      margin-top: 1px;
+      flex-shrink: 0;
+    }
+  </style>
+</head>
+<body>
+
+<div data-include="/_partials/nav.html"></div>
+
+<section class="section section-white" style="min-height: 70vh; display: flex; align-items: center;">
+  <div class="wrap" style="text-align: center;">
+
+    <div class="section-eyebrow" style="justify-content: center;">Developer Account</div>
+    <h2 style="margin-bottom: 12px;">Start building for free.</h2>
+    <p class="section-sub" style="margin-bottom: 40px;">Create your DataObjects developer account and launch your first app in minutes. No credit card required.</p>
+
+    <div class="signup-card">
+
+      <!-- Success state (hidden until submit) -->
+      <div class="signup-success" id="signup-success">
+        <div class="signup-success-icon">🎉</div>
+        <h3>Account created!</h3>
+        <p>We've sent a login link to <strong id="success-email"></strong>.<br>Click it to set your password and start building.</p>
+        <a href="https://dev.dataobjects.com" class="signup-success-btn">Go to Developer Portal →</a>
+      </div>
+
+      <!-- Signup form -->
+      <div id="signup-form-wrap">
+        <form id="signup-form" autocomplete="on">
+
+          <div class="signup-row">
+            <div class="signup-field">
+              <label for="signup-first">First Name</label>
+              <input type="text" id="signup-first" name="first" placeholder="Jane" autocomplete="given-name" required>
+            </div>
+            <div class="signup-field">
+              <label for="signup-last">Last Name</label>
+              <input type="text" id="signup-last" name="last" placeholder="Smith" autocomplete="family-name" required>
+            </div>
+          </div>
+
+          <div class="signup-field">
+            <label for="signup-email">Email Address</label>
+            <input type="email" id="signup-email" name="email" placeholder="you@company.com" autocomplete="email" required>
+          </div>
+
+          <div class="signup-turnstile">
+            <div
+              class="cf-turnstile"
+              data-sitekey="0x4AAAAAADX9ppOlWVEET-NW"
+              data-theme="light"
+              data-size="flexible">
+            </div>
+          </div>
+
+          <button type="submit" class="signup-btn" id="signup-btn">
+            Create Free Account →
+          </button>
+
+          <div class="signup-error" id="signup-error"></div>
+
+        </form>
+
+        <p class="signup-fineprint">
+          By signing up you agree to our <a href="/terms.html">Terms of Service</a> and <a href="/privacy.html">Privacy Policy</a>.
+        </p>
+
+        <div class="signup-perks">
+          <div class="signup-perk"><span class="signup-perk-icon">✅</span><span><strong>Free tier included</strong> — 1 app, 1 user, 1 GB storage. No credit card.</span></div>
+          <div class="signup-perk"><span class="signup-perk-icon">🚀</span><span><strong>Live in minutes</strong> — create your database, design your layout, invite users.</span></div>
+          <div class="signup-perk"><span class="signup-perk-icon">🔒</span><span><strong>Your data stays yours</strong> — isolated per-app database, never shared.</span></div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div data-include="/_partials/footer.html"></div>
+
+<script>
+(function () {
+  const API_BASE = 'https://data.dataobjects.com';
+
+  const form    = document.getElementById('signup-form');
+  const btn     = document.getElementById('signup-btn');
+  const errEl   = document.getElementById('signup-error');
+  const successEl     = document.getElementById('signup-success');
+  const formWrapEl    = document.getElementById('signup-form-wrap');
+  const successEmail  = document.getElementById('success-email');
+
+  function showError(msg) {
+    errEl.textContent = msg;
+    errEl.classList.add('show');
+  }
+  function clearError() {
+    errEl.classList.remove('show');
+    errEl.textContent = '';
+  }
+
+  form.addEventListener('submit', async function (e) {
+    e.preventDefault();
+    clearError();
+
+    const first = document.getElementById('signup-first').value.trim();
+    const last  = document.getElementById('signup-last').value.trim();
+    const email = document.getElementById('signup-email').value.trim();
+
+    const tokenInput = form.querySelector('input[name=cf-turnstile-response]');
+    const turnstileToken = tokenInput ? tokenInput.value : '';
+
+    if (!turnstileToken) {
+      showError('Please wait a moment for the security check to complete.');
+      return;
+    }
+    if (!first || !last) {
+      showError('Please enter your first and last name.');
+      return;
+    }
+
+    btn.disabled    = true;
+    btn.textContent = 'Creating account…';
+
+    try {
+      const resp = await fetch(`${API_BASE}/v6/dev/signup`, {
+        method:  'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body:    JSON.stringify({ first, last, email, turnstileToken }),
+      });
+      const data = await resp.json();
+
+      if (data.status === 'ok') {
+        successEmail.textContent = email;
+        formWrapEl.style.display  = 'none';
+        successEl.classList.add('show');
+      } else if (data.status === 'exists') {
+        showError('A developer account already exists for this email. Please sign in at dev.dataobjects.com.');
+        btn.disabled    = false;
+        btn.textContent = 'Create Free Account →';
+        if (window.turnstile) window.turnstile.reset();
+      } else {
+        showError(data.message || 'Something went wrong. Please try again.');
+        btn.disabled    = false;
+        btn.textContent = 'Create Free Account →';
+        if (window.turnstile) window.turnstile.reset();
+      }
+    } catch (err) {
+      console.error('[signup]', err);
+      showError('Network error. Please check your connection and try again.');
+      btn.disabled    = false;
+      btn.textContent = 'Create Free Account →';
+      if (window.turnstile) window.turnstile.reset();
+    }
+  });
+})();
+</script>
+
+</body>
+</html>
