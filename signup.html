@@ -294,10 +294,17 @@
       });
       const data = await resp.json();
 
+      // if (data.status === 'ok') {
+      //   successEmail.textContent = email;
+      //   formWrapEl.style.display  = 'none';
+      //   successEl.classList.add('show');
+
       if (data.status === 'ok') {
-        successEmail.textContent = email;
-        formWrapEl.style.display  = 'none';
-        successEl.classList.add('show');
+      if (successEmail) successEmail.textContent = email;
+      formWrapEl.style.display  = 'none';
+      successEl.classList.add('show');
+
+
       } else if (data.status === 'exists') {
         showError('A developer account already exists for this email. Please sign in at dev.dataobjects.com.');
         btn.disabled    = false;
