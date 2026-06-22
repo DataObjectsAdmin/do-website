@@ -174,8 +174,19 @@
 
     <div class="signup-card">
 
-      <!-- Success state (hidden until submit, content set by JS) -->
-      <div class="signup-success" id="signup-success"></div>
+      <!-- Success state (hidden until submit) -->
+      <div class="signup-success" id="signup-success">
+        <div class="signup-success-icon">🎉</div>
+        <h3>Account created!</h3>
+        <!-- <p>We've sent a login link to <strong id="success-email"></strong>.<br>Click it to set your password and start building.</p>
+        <a href="https://dev.dataobjects.com" class="signup-success-btn">Go to Developer Portal →</a> -->
+<p style="font-size:0.95rem;color:#374151;background:#f0f7ff;border:1px solid #bfdbfe;
+   border-radius:8px;padding:14px 18px;line-height:1.6;">
+  📬 Check your inbox and click the link to set your password and activate your account.
+</p>
+
+
+      </div>
 
       <!-- Signup form -->
       <div id="signup-form-wrap">
@@ -241,6 +252,8 @@
   const errEl   = document.getElementById('signup-error');
   const successEl     = document.getElementById('signup-success');
   const formWrapEl    = document.getElementById('signup-form-wrap');
+  const successEmail  = document.getElementById('success-email');
+
   function showError(msg) {
     errEl.textContent = msg;
     errEl.classList.add('show');
@@ -282,32 +295,16 @@
       const data = await resp.json();
 
       // if (data.status === 'ok') {
+      //   successEmail.textContent = email;
       //   formWrapEl.style.display  = 'none';
       //   successEl.classList.add('show');
 
       if (data.status === 'ok') {
-        formWrapEl.style.display = 'none';
-        successEl.classList.add('show');
-        if (data.hasPassword) {
-          // Existing user with a password — just send them to login
-          successEl.innerHTML = `
-            <div class="signup-success-icon">✅</div>
-            <h3>Developer access granted!</h3>
-            <p>Your DataObjects account has been upgraded to developer access.<br>
-            Sign in with your existing password to get started.</p>
-            <a href="https://dev.dataobjects.com" class="signup-success-btn">Sign In to Developer Portal →</a>
-          `;
-        } else {
-          // New user or existing user without password — check email
-          successEl.innerHTML = `
-            <div class="signup-success-icon">🎉</div>
-            <h3>Account created!</h3>
-            <p style="font-size:0.95rem;color:#374151;background:#f0f7ff;border:1px solid #bfdbfe;
-               border-radius:8px;padding:14px 18px;line-height:1.6;">
-              📬 Check your inbox and click the link to set your password and activate your account.
-            </p>
-          `;
-        }
+      if (successEmail) successEmail.textContent = email;
+      formWrapEl.style.display  = 'none';
+      successEl.classList.add('show');
+
+
       } else if (data.status === 'exists') {
         showError('A developer account already exists for this email. Please sign in at dev.dataobjects.com.');
         btn.disabled    = false;
