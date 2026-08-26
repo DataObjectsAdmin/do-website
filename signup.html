@@ -274,7 +274,7 @@
     btn.textContent = 'Creating account…';
 
     try {
-      const resp = await fetch(`${API_BASE}/v6/dev/signup`, {
+      const resp = await fetch(`${API_BASE}/api/v1/dev/signup`, {
         method:  'POST',
         headers: { 'Content-Type': 'application/json' },
         body:    JSON.stringify({ first, last, email, turnstileToken }),
